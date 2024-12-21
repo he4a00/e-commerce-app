@@ -5,7 +5,6 @@ import { Input } from "../ui/input";
 import { cn } from "@/lib/utils";
 import { useLoginUserMutation } from "@/app/store/slices/api/user/userSlice";
 import Link from "next/link";
-import { redirect } from "next/navigation";
 
 export function SigninForm() {
   const [formData, setFormData] = useState({
@@ -13,7 +12,7 @@ export function SigninForm() {
     password: "",
   });
 
-  const [loginClient, { isLoading: isLoginClientLoading, isSuccess }] =
+  const [loginClient, { isLoading: isLoginClientLoading }] =
     useLoginUserMutation();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
